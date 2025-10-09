@@ -1,1 +1,3 @@
 npm init - Create package.json
+
+package.json "scripts" Mude /src/../.. - Change according to the folder
