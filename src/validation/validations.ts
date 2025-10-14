@@ -1,4 +1,4 @@
-import z from "zod";
+import z, { negative, nonnegative, positive } from "zod";
 import { ru } from "zod/locales";
 
 // Validations, Transformations
@@ -29,7 +29,7 @@ const cars = z.object({
     rule: z.string().includes('wp_'),
     ruleOne: z.string().startsWith('wp_').optional(), // Inicia com
     image: z.string().endsWith('.jpg').optional(), // Termina com
-    test: z.string().startsWith('Golf').endsWith('GTI').optional()  
+    test: z.string().startsWith('Golf').endsWith('GTI').optional()
 })
 
 const resultsCar = cars.parse({
@@ -41,3 +41,29 @@ const resultsCar = cars.parse({
     rule: 'wp_gti'
 })
 console.log(resultsCar)
+
+// Greater Than - GT - Maior
+// Lower Than - LT - Menor
+// Greater Than or Equal = GTE / Maior ou Igual
+// Lower Than or Equal = GTE / Menor ou Igual
+
+const patterns = z.object({
+    age: z.number().gt(18),
+    ages: z.number().lt(18).optional(),
+    ageInt: z.number().int().optional(),
+    nonnegative: z.number().nonnegative().optional(), // Número Não Negativo
+    nonepositive: z.number().nonpositive().optional(), // Número Não Positivo
+    multiple: z.number().multipleOf(5).optional() // Múltiplo de 5 ou Valor Decidido
+
+    // .positive()
+    // .negative()
+})
+
+const results = patterns.parse({
+
+    age: 19,
+    ages: 17,
+    ageInt: 11, // Número Inteiro
+    multiple: 25
+})
+console.log(results)
