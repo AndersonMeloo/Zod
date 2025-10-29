@@ -21,7 +21,7 @@ Para usar o projeto, siga os passos abaixo:
 git clone https://github.com/SEU-USUARIO/testes-zod.git
 
 # Acessar a pasta do projeto
-cd testes-zod
+cd /pastas
 
 # Instalar dependências
 npm install
