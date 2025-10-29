@@ -27,7 +27,7 @@ cd testes-zod
 npm install
 ```
 
-# Se você ainda não tiver o Zod instalado em outro projeto:
+## Se você ainda não tiver o Zod instalado em outro projeto:
 
 ```bash
 # Instalar Zod via npm
